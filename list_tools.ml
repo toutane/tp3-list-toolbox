@@ -100,6 +100,40 @@ let print_board board =
      in print_l board
 ;;
 
-print_board (init_board (5,6) '*') ;;
+(* print_board (init_board (5,6) '*') ;; *)
 
 (* get_cell function returns the yth element of the xth list of a given board. *)
+let get_cell (x, y) board =
+  if x < 0 || y < 0 then invalid_arg "get_cell: the coords of the element must be naturals"
+  else (
+    let rec get_element n = function
+        [] -> failwith "get_cell: the list is too short"
+      | e::_ when n = y -> e
+      | _::l -> get_element (n + 1) l
+    in let rec get_list n = function
+           [] -> failwith "get_cell: the board is too short"
+         | e::_ when n = x -> get_element 0 e
+         | _::l -> get_list (n + 1) l
+       in get_list 0 board
+  )
+;;
+                   
+(* get_cell (0, 0) [[1; 2]; [3; 4; 5]] ;; *)
+
+(* put_cell function replace the value of an element in a board, it takes tree parameters *)
+let put_cell v (x, y) board =
+  if x < 0 || y < 0 then invalid_arg "put_cell: the coords of the element must be naturals"
+  else (
+    let rec replace n = function
+        [] -> failwith "put_cell: the list is too short"
+      | _::l when n = y -> v::l
+      | e::l -> e::replace (n + 1) l
+    in let rec find_list n = function
+           [] -> failwith "put_cell: the board is too short"
+         | e::l when n = x -> (replace 0 e)::l
+         | e::l -> e::(find_list (n + 1) l)
+       in find_list 0 board
+  )
+;;
+
+(* put_cell 1 (0, 0) (init_board (5, 3) 0) ;; *)

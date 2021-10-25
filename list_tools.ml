@@ -49,7 +49,7 @@ let rec append l1 l2 =
     | (e::l, _) -> e::(append l l2)
 ;;
 
-(* put_list function replace ith element of a given list by v. *)
+(* put_list function replace ith element of a given list by x. *)
 let put_list x i list =
   if i < 0 then invalid_arg "put_list: i must be a natural"
   else (
@@ -120,7 +120,7 @@ let get_cell (x, y) board =
                    
 (* get_cell (0, 0) [[1; 2]; [3; 4; 5]] ;; *)
 
-(* put_cell function replace the value of an element in a board, it takes tree parameters *)
+(* put_cell function replace the value of an element in a board, it takes tree parameters and returns the modified board *)
 let put_cell v (x, y) board =
   if x < 0 || y < 0 then invalid_arg "put_cell: the coords of the element must be naturals"
   else (

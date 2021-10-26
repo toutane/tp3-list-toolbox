@@ -1,3 +1,6 @@
+(* Charles-Antoine Leger - E2 - TP3 *)
+
+(* Load functions in "list_tools.ml" *)
 #use "list_tools.ml"
 
 (* add_occ function takes two paramters: i and hist and returns hist increased by 1 for the ith element *)
@@ -26,7 +29,7 @@ let get_hist list =
   )
 ;;
 
-(* get_hist  [0; 1; 2; 3] ;; *)
+(* get_hist  [0; 1; 2; 2; 0; 3] ;; *)
 
 (* get_sorted function builds a sorted list from a given histogram. *)
 let get_sorted hist =
@@ -52,4 +55,4 @@ let hist_sort list =
   )
 ;;
 
-(* hist_sort [12; 150; 66; 0; 12; 88; 5; 12; 555; 5; -1; 150] ;; *)
+(* hist_sort [12; 150; 66; 0; 12; 88; 5; 12; 555; 5; 150] ;; *)

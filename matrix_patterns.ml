@@ -1,3 +1,6 @@
+(* Charles-Antoine Leger - E2 - TP3 *)
+
+(* Load functions in "list_tools.ml" *)
 #use "list_tools.ml" ;;
 
 (* mat_cross builds the pattern for a given n c1 and c2. *)

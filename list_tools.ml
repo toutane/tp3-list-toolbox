@@ -1,3 +1,5 @@
+(* Charles-Antoine Leger - E2 - TP3 *)
+
 (* length function takes a list in parameter and returns its length. *)
 let rec length = function
     [] -> 0
@@ -63,7 +65,7 @@ let put_list x i list =
 
 (* init_board function builds a board of length l times c filled of element v. *)
 let init_board (l, c) v =
-  if l < 0 || c < 0 then invalid_arg "init_board: the length of the list or sublist must be a natural"
+  if l < 0 || c < 0 then invalid_arg "init_board: the length of the list or sublist must be naturals"
   else (
     let rec build_list = function
         0 -> []
